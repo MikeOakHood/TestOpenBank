@@ -1,6 +1,5 @@
 package com.capgemini.test.code;
 
-import com.capgemini.test.code.errors.ValidationException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

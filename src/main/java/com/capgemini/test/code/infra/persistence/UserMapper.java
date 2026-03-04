@@ -1,8 +1,9 @@
 package com.capgemini.test.code.infra.persistence;
 
+import org.springframework.stereotype.Component;
+
 import com.capgemini.test.code.model.Role;
 import com.capgemini.test.code.model.User;
-import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapper {

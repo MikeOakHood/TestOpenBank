@@ -1,10 +1,10 @@
 package com.capgemini.test.code.model;
 
-import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import lombok.Getter;
 
 public class Room {
     @Getter

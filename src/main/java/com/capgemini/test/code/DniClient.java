@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
- 
+
 import feign.Logger;
 //import feign.okhttp.OkHttpClient;
 import okhttp3.OkHttpClient;

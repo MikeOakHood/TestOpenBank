@@ -1,6 +1,7 @@
 package com.capgemini.test.code.infra.notification;
 
-import com.capgemini.test.code.model.User;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.Map;
+import com.capgemini.test.code.model.User;
 
 public class EmailNotificationStrategy implements NotificationStrategy {
 
