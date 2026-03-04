@@ -1,4 +1,4 @@
-package com.capgemini.test.code.clients;
+package com.capgemini.test.code;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +9,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CheckDniRequest {
-  private String dni;
+public class CheckDniResponse {
+  private String message;
 }
