@@ -1,4 +1,4 @@
-package com.capgemini.test.code.errors;
+package com.capgemini.test.code.domain.exception;
 
 import lombok.Getter;
 

@@ -1,9 +1,11 @@
-package com.capgemini.test.code.infra.persistence;
+package com.capgemini.test.code.infra.persistence.mapper;
 
+import com.capgemini.test.code.infra.persistence.RoomEntity;
+import com.capgemini.test.code.infra.persistence.UserEntity;
 import org.springframework.stereotype.Component;
 
-import com.capgemini.test.code.model.Role;
-import com.capgemini.test.code.model.User;
+import com.capgemini.test.code.domain.model.Role;
+import com.capgemini.test.code.domain.model.User;
 
 @Component
 public class UserMapper {

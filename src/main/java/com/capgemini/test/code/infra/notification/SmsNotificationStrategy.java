@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.capgemini.test.code.model.User;
+import com.capgemini.test.code.domain.model.User;
 
 public class SmsNotificationStrategy implements NotificationStrategy {
 

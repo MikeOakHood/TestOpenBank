@@ -1,4 +1,4 @@
-package com.capgemini.test.code;
+package com.capgemini.test.code.application.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

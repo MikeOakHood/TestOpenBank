@@ -1,4 +1,4 @@
-package com.capgemini.test.code.model;
+package com.capgemini.test.code.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 

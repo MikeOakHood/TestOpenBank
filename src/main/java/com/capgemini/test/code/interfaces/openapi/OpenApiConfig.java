@@ -1,4 +1,4 @@
-package com.capgemini.test.code.infra.config;
+package com.capgemini.test.code.interfaces.openapi;
 
 
 import org.springframework.context.annotation.Bean;

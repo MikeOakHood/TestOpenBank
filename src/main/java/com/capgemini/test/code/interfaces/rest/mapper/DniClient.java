@@ -1,5 +1,7 @@
-package com.capgemini.test.code;
+package com.capgemini.test.code.interfaces.rest.mapper;
 
+import com.capgemini.test.code.application.dto.CheckDniRequest;
+import com.capgemini.test.code.application.dto.CheckDniResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

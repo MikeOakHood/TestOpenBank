@@ -1,4 +1,4 @@
-package com.capgemini.test.code.model;
+package com.capgemini.test.code.domain.model;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,7 +1,9 @@
-package com.capgemini.test.code;
+package com.capgemini.test.code.application.service;
 
 
 
+import com.capgemini.test.code.application.dto.CheckDniRequest;
+import com.capgemini.test.code.application.dto.CheckDniResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -12,7 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.capgemini.test.code.errors.ValidationException;
+import com.capgemini.test.code.domain.exception.ValidationException;
 
 
 @Service

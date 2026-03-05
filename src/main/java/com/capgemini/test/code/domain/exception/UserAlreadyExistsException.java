@@ -1,4 +1,4 @@
-package com.capgemini.test.code.errors;
+package com.capgemini.test.code.domain.exception;
 
 public class UserAlreadyExistsException extends RuntimeException {
     public UserAlreadyExistsException(String email) {

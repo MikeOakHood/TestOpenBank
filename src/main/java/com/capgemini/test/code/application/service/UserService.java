@@ -1,19 +1,20 @@
-package com.capgemini.test.code;
+package com.capgemini.test.code.application.service;
 
 import java.util.Map;
 import java.util.Optional;
 
+import com.capgemini.test.code.application.dto.CheckDniRequest;
 import org.springframework.stereotype.Service;
 
-import com.capgemini.test.code.errors.UserAlreadyExistsException;
-import com.capgemini.test.code.errors.UserNotFoundException;
-import com.capgemini.test.code.errors.ValidationException;
+import com.capgemini.test.code.domain.exception.UserAlreadyExistsException;
+import com.capgemini.test.code.domain.exception.UserNotFoundException;
+import com.capgemini.test.code.domain.exception.ValidationException;
 import com.capgemini.test.code.infra.notification.NotificationStrategy;
 import com.capgemini.test.code.infra.persistence.UserEntity;
-import com.capgemini.test.code.infra.persistence.UserMapper;
+import com.capgemini.test.code.infra.persistence.mapper.UserMapper;
 import com.capgemini.test.code.infra.persistence.UserRepository;
-import com.capgemini.test.code.model.Role;
-import com.capgemini.test.code.model.User;
+import com.capgemini.test.code.domain.model.Role;
+import com.capgemini.test.code.domain.model.User;
 
 @Service
 public class UserService {

@@ -1,5 +1,8 @@
-package com.capgemini.test.code.errors;
+package com.capgemini.test.code.interfaces.rest.exception;
 
+import com.capgemini.test.code.domain.exception.UserAlreadyExistsException;
+import com.capgemini.test.code.domain.exception.UserNotFoundException;
+import com.capgemini.test.code.domain.exception.ValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
