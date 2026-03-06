@@ -1,7 +1,5 @@
 package com.capgemini.test.code.application.service;
 
-import com.capgemini.test.code.application.dto.CheckDniRequest;
-import com.capgemini.test.code.application.dto.CheckDniResponse;
 import com.capgemini.test.code.domain.exception.UserNotFoundException;
 import com.capgemini.test.code.domain.model.Role;
 import com.capgemini.test.code.domain.model.User;
@@ -24,32 +22,21 @@ public class AppService {
     private final UserMapper userMapper;
     private final UserRepository userRepository;
     private final Map<Role, NotificationStrategy> notificationStrategies;
-    private final CheckDniService checkDniService;
 
     public AppService(UserDomainService userDomainService,
                       UserRepository userRepository,
                       Map<Role, NotificationStrategy> notificationStrategies,
-                      UserMapper userMapper,
-                      CheckDniService checkDniService) {
+                      UserMapper userMapper) {
         this.userDomainService      = userDomainService;
         this.userRepository         = userRepository;
         this.notificationStrategies = notificationStrategies;
         this.userMapper             = userMapper;
-        this.checkDniService        = checkDniService;
     }
 
     public Long createUser(User user) {
 
-        //Servicio de verificación de usuario (A extraer como interfaz / servicio aparte para el dominio)
-        UserEntity userEntity = userRepository.findByEmail(user.getEmail()).orElse(null);
-
-        // Servicio de chqueo externo
-        CheckDniRequest checkDniRequest = new CheckDniRequest();
-        checkDniRequest.setDni(user.getDni());
-        ResponseEntity<CheckDniResponse> response = checkDniService.resultadoChekExterno(checkDniRequest);
-
         // Llamar al dominio
-        userDomainService.validateUser(user, userEntity, response);
+        userDomainService.validateUser(user);
 
         // Guardar usuario en BBDD
         User saved = userMapper.toDomain(userRepository.save(userMapper.toEntity(user)));

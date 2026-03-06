@@ -31,13 +31,13 @@ public class UserDomainService {
     }
 
 
-    public void validateUser(User user, UserEntity userEntity, ResponseEntity<CheckDniResponse> response) {
+    public void validateUser(User user) {
 
         boolean valid = false;
 
-        valid = checkUser.ivValid(userEntity);
+        valid = checkUser.ivValid(user);
         if  (valid) {
-            verifyDNI.isValid(response);
+            verifyDNI.isValid(user);
         }
         if (valid)  {
             checkName.isValid(user.getName());

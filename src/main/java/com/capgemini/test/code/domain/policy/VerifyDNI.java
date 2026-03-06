@@ -1,10 +1,10 @@
 package com.capgemini.test.code.domain.policy;
 
-import com.capgemini.test.code.application.dto.CheckDniResponse;
-import org.springframework.http.ResponseEntity;
+import com.capgemini.test.code.domain.model.User;
+
 
 public interface VerifyDNI {
 
-    boolean isValid (ResponseEntity<CheckDniResponse> response);
+    public boolean isValid (User user);
 
 }
