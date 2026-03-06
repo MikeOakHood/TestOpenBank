@@ -2,8 +2,10 @@ package com.capgemini.test.code.domain.service;
 
 
 import com.capgemini.test.code.application.dto.CheckDniResponse;
-import lombok.Getter;
-import lombok.Setter;
+import com.capgemini.test.code.domain.policy.CheckEmail;
+import com.capgemini.test.code.domain.policy.CheckName;
+import com.capgemini.test.code.domain.policy.CheckUser;
+import com.capgemini.test.code.domain.policy.VerifyDNI;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -16,25 +18,32 @@ import com.capgemini.test.code.domain.model.User;
 @Service
 public class UserDomainService {
 
+    private final VerifyDNI verifyDNI;
+    private final CheckUser checkUser;
+    private final CheckName checkName;
+    private final CheckEmail checkEmail;
+
+    public UserDomainService(VerifyDNI verifyDNI, CheckUser checkUser, CheckName checkName, CheckEmail checkEmail) {
+        this.verifyDNI = verifyDNI;
+        this.checkUser = checkUser;
+        this.checkName = checkName;
+        this.checkEmail = checkEmail;
+    }
+
+
     public void validateUser(User user, UserEntity userEntity, ResponseEntity<CheckDniResponse> response) {
 
-        if (userEntity != null ) {
-            throw new UserAlreadyExistsException(userEntity.getEmail());
-        };
+        boolean valid = false;
 
-        if (response.getBody() != null && response.getBody().getMessage() !=null) {
-            if (!response.getBody().getMessage().contains("Valid DNI")) {
-                throw new ValidationException("dni", "error validation dni");
-            }
-        } else {
-            throw new ValidationException("dni", "error validation dni");
+        valid = checkUser.ivValid(userEntity);
+        if  (valid) {
+            verifyDNI.isValid(response);
         }
-
-        if (user.getName() == null || user.getName().length() > 6) {
-            throw new ValidationException("userName", "error length user");
+        if (valid)  {
+            checkName.isValid(user.getName());
         }
-        if (user.getEmail() == null || !user.getEmail().contains("@") || !user.getEmail().contains(".")) {
-            throw new ValidationException("email", "error validation email");
+        if (valid) {
+            checkEmail.isValid(user.getEmail());
         }
 
     }
