@@ -29,22 +29,21 @@ public class CheckDniService {
         this.restTemplate = restTemplate;
     }
 
-    public boolean isValid (CheckDniRequest checkDniRequest) {
+    public ResponseEntity<CheckDniResponse> resultadoChekExterno(CheckDniRequest checkDniRequest) {
         boolean valid = false;
         String url = UriComponentsBuilder.fromHttpUrl(dniValidationUrl).path("/check-dni").toUriString();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<CheckDniRequest> requestEntity = new HttpEntity<>(checkDniRequest, headers);
 
+        ResponseEntity<CheckDniResponse> response;
         try {
-            ResponseEntity<CheckDniResponse> response = restTemplate.exchange(url,HttpMethod.PATCH,requestEntity,CheckDniResponse.class);
-            if (response.getBody() != null && response.getBody().getMessage() !=null) {
-                valid = response.getBody().getMessage().contains("Valid DNI");
-            }
+            response = restTemplate.exchange(url, HttpMethod.PATCH, requestEntity, CheckDniResponse.class);
+
         } catch (Exception e) {
             throw new ValidationException("email", "error checking dni");
         }
-        return valid;
+        return response;
     }
 
 }

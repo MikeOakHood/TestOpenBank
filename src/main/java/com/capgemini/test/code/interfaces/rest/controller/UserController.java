@@ -2,7 +2,7 @@ package com.capgemini.test.code.interfaces.rest.controller;
 
 import java.util.Map;
 
-import com.capgemini.test.code.application.service.UserService;
+import com.capgemini.test.code.application.service.AppService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +24,9 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @Tag(name = "Usuarios", description = "Operaciones sobre usuarios")
 public class UserController {
 
-    private final UserService service;
+    private final AppService service;
 
-    public UserController(UserService service) {
+    public UserController(AppService service) {
         this.service = service;
     }
 
